@@ -1,0 +1,3 @@
+# Last bootup time
+$bootTime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime 
+Write-Host "The computer last booted up at: $bootTime"
