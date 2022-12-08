@@ -1,0 +1,11 @@
+# Get the C: drive on a remote computer
+$drive = Get-WmiObject -Class Win32_LogicalDisk -ComputerName "REMOTE_COMPUTER_NAME" -Filter "DeviceID='C:'"
+
+# Extract the free space
+$freeSpace = $drive.FreeSpace
+
+# Convert the free space to GB
+$freeSpaceGB = $freeSpace / 1GB
+
+# Print the free space to the console
+Write-Output "Free Space on C: drive of remote computer: $freeSpaceGB GB"
