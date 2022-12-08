@@ -1,0 +1,8 @@
+# Get the Win32_OperatingSystem WMI class
+$os = Get-WmiObject -Class Win32_OperatingSystem
+
+# Extract the operating system name
+$osName = $os.Name
+
+# Print the operating system name to the console
+Write-Output "Operating System Name: $osName"
