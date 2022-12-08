@@ -1,0 +1,18 @@
+# Create a list of users and their details as an array
+$Users = @(
+    @{Name="John Doe";Account="john.doe";Password="P@ssword1";OU="OU=Users,OU=MyBusiness,DC=MyDomain,DC=local"},
+    @{Name="Jane Doe";Account="jane.doe";Password="P@ssword2";OU="OU=Users,OU=MyBusiness,DC=MyDomain,DC=local"},
+    @{Name="Sam Smith";Account="sam.smith";Password="P@ssword3";OU="OU=Users,OU=MyBusiness,DC=MyDomain,DC=local"}
+            )
+# For each user in the array, create the user account in Active Directory
+Foreach ($User in $Users) {
+$Username = $User.Account    
+$Name = $User.Name
+$Password = $User.Password    
+$OU = $User.OU }
+
+# Create the user in AD
+New-ADUser 
+-Name $Name 
+-SamAccountName $Username 
+-UserPrincipal
