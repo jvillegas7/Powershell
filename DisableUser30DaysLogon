@@ -1,0 +1,8 @@
+# Get all users who have not logged in in the last 30 days
+$inactiveUsers = Search-ADAccount -AccountInactive -Timespan 30.00:00:00 | Where-Object {$_.Enabled -eq $True}
+
+# Loop through each user and disable
+Foreach ($user in $inactiveUsers) 
+{ 
+    Disable-ADAccount -Identity $user -Confirm:$False 
+}
